@@ -12,8 +12,8 @@ repositories {
 }
 
 dependencies {
-    compileOnly(kotlin("stdlib-jdk8", project.version.toString()))
-    compileOnly(kotlin("reflect", project.version.toString()))
+    implementation(kotlin("stdlib-jdk8", project.version.toString()))
+    implementation(kotlin("reflect", project.version.toString()))
 }
 
 configure<JavaPluginConvention> {
@@ -28,7 +28,8 @@ tasks {
                     "Bundle-License" to "http://www.apache.org/licenses/LICENSE-2.0.txt",
                     "Bundle-SymbolicName" to "org.jetbrains.kotlin.jdk8-osgi-bundle",
                     "Export-Package" to "kotlin.*;-split-package:=merge-first",
-                    "Import-Package" to "!*"
+                    "Import-Package" to "!*",
+                    "Private-Package" to "!META-INF.maven.*,META-INF.*;-split-package:=merge-first"
             ))
         }
     }
