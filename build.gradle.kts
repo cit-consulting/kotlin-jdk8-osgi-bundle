@@ -27,8 +27,7 @@ tasks {
             attributes(mapOf(
                     "Bundle-License" to "http://www.apache.org/licenses/LICENSE-2.0.txt",
                     "Bundle-SymbolicName" to "org.jetbrains.kotlin.jdk8-osgi-bundle",
-                    "Export-Package" to "kotlin.*;-split-package:=merge-first",
-                    "Import-Package" to "!*",
+                    "Export-Package" to "kotlin.*;-split-package:=merge-first;-noimport:=true",
                     "Private-Package" to "!META-INF.maven.*,META-INF.*;-split-package:=merge-first"
             ))
         }
