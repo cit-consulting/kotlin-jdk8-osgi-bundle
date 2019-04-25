@@ -6,4 +6,9 @@ Bundle includes:
  - stdlib-jdk7
  - stdlib-jdk8
  - reflect
- 
+
+
+Binaries available there:
+
+https://maven1.citc.ru/content/groups/public/
+  
