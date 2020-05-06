@@ -1,6 +1,6 @@
 plugins {
     java
-    id("biz.aQute.bnd.builder") version "4.1.0"
+    id("biz.aQute.bnd.builder") version "5.0.1"
     `maven-publish`
 }
 
