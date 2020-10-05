@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "org.jetbrains.kotlin"
-version = "1.3.72"
+version = "1.4.10"
 
 repositories {
     mavenCentral()
@@ -23,13 +23,22 @@ configure<JavaPluginConvention> {
 
 tasks {
     jar {
+        withConvention(aQute.bnd.gradle.BundleTaskConvention::class) {
+            bnd(
+                mapOf(
+                    "-fixupmessages" to "^Classes found in the wrong directory: \\\\{META-INF/versions/9/kotlin/reflect/jvm/internal/impl/serialization/deserialization/builtins/BuiltInsResourceLoader.class=kotlin.reflect.jvm.internal.impl.serialization.deserialization.builtins.BuiltInsResourceLoader, META-INF/versions/9/module-info.class=module-info}$"
+                )
+            )
+        }
         manifest {
-            attributes(mapOf(
+            attributes(
+                mapOf(
                     "Bundle-License" to "http://www.apache.org/licenses/LICENSE-2.0.txt",
                     "Bundle-SymbolicName" to "org.jetbrains.kotlin.jdk8-osgi-bundle",
                     "Export-Package" to "kotlin.*;-split-package:=merge-first;-noimport:=true",
                     "Private-Package" to "!META-INF.maven.*,META-INF.*;-split-package:=merge-first"
-            ))
+                )
+            )
         }
     }
 }
