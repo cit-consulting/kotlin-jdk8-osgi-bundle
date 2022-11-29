@@ -1,6 +1,6 @@
 plugins {
     java
-    id("biz.aQute.bnd.builder") version "5.2.0"
+    id("biz.aQute.bnd.builder") version "6.3.1"
     `maven-publish`
 }
 
@@ -8,6 +8,7 @@ group = "org.jetbrains.kotlin"
 version = "1.4.32"
 
 repositories {
+    maven { url = uri("https://maven1.citc.ru/repository/public/") }
     mavenCentral()
 }
 
@@ -47,7 +48,7 @@ publishing {
     repositories {
         maven {
             name = "CitcOss"
-            url = uri("https://maven1.citc.ru/content/repositories/citc-opensource")
+            url = uri("https://maven1.citc.ru/repository/citc-opensource/")
             credentials {
                 username = project.properties["mavenPublishUser.${url.host}"].toString()
                 password = project.properties["mavenPublishPassword.${url.host}"].toString()
