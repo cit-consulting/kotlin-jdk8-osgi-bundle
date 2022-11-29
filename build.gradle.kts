@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "org.jetbrains.kotlin"
-version = "1.4.32"
+version = "1.7.21"
 
 repositories {
     maven { url = uri("https://maven1.citc.ru/repository/public/") }
@@ -37,7 +37,8 @@ tasks {
                     "Bundle-License" to "http://www.apache.org/licenses/LICENSE-2.0.txt",
                     "Bundle-SymbolicName" to "org.jetbrains.kotlin.jdk8-osgi-bundle",
                     "Export-Package" to "kotlin.*;-split-package:=merge-first;-noimport:=true",
-                    "Private-Package" to "!META-INF.maven.*,META-INF.*;-split-package:=merge-first"
+                    "Private-Package" to "!META-INF.maven.*,META-INF.*;-split-package:=merge-first",
+                    "Import-Package" to ""
                 )
             )
         }
