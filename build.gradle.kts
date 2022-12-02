@@ -1,11 +1,11 @@
 plugins {
     java
-    id("biz.aQute.bnd.builder") version "6.3.1"
+    id("biz.aQute.bnd.builder") version "6.4.0"
     `maven-publish`
 }
 
 group = "org.jetbrains.kotlin"
-version = "1.7.21"
+version = "1.7.22"
 
 repositories {
     maven { url = uri("https://maven1.citc.ru/repository/public/") }
@@ -27,7 +27,8 @@ tasks {
         withConvention(aQute.bnd.gradle.BundleTaskConvention::class) {
             bnd(
                 mapOf(
-                    "-fixupmessages" to "^Classes found in the wrong directory: \\\\{META-INF/versions/9/kotlin/reflect/jvm/internal/impl/serialization/deserialization/builtins/BuiltInsResourceLoader.class=kotlin.reflect.jvm.internal.impl.serialization.deserialization.builtins.BuiltInsResourceLoader, META-INF/versions/9/module-info.class=module-info}$"
+                    "-fixupmessages" to "^Classes found in the wrong directory: \\\\{META-INF/versions/9/kotlin/reflect/jvm/internal/impl/serialization/deserialization/builtins/BuiltInsResourceLoader.class=kotlin.reflect.jvm.internal.impl.serialization.deserialization.builtins.BuiltInsResourceLoader, META-INF/versions/9/module-info.class=module-info}$",
+                    "Import-Package" to "!andoid.os",
                 )
             )
         }
@@ -38,7 +39,6 @@ tasks {
                     "Bundle-SymbolicName" to "org.jetbrains.kotlin.jdk8-osgi-bundle",
                     "Export-Package" to "kotlin.*;-split-package:=merge-first;-noimport:=true",
                     "Private-Package" to "!META-INF.maven.*,META-INF.*;-split-package:=merge-first",
-                    "Import-Package" to ""
                 )
             )
         }
