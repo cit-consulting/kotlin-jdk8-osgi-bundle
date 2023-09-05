@@ -5,10 +5,9 @@ plugins {
 }
 
 group = "org.jetbrains.kotlin"
-version = "1.7.22"
+version = "1.9.10"
 
 repositories {
-    maven { url = uri("https://maven1.citc.ru/repository/public/") }
     mavenCentral()
 }
 
